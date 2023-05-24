@@ -32,13 +32,14 @@ export class GamePage implements OnInit {
     this.questionNumber = 0;
   }
 
+
   getQuestions(){
     this.serviceApi.getQuestions().subscribe(
       (res : any ) =>{
         this.questions = res;
-        this.questionTitle = this.questions[0].question;
-        this.questionAnswer = this.questions[0].answer;
-        this.helpAnswer = this.questions[0].help;
+        this.questionTitle = this.questions[this.questionNumber].question;
+        this.questionAnswer = this.questions[this.questionNumber].answer;
+        this.helpAnswer = this.questions[this.questionNumber].help;
         console.log(this.questions);
       }, (err:any) =>{
         console.log("error : ",err)
@@ -68,6 +69,7 @@ export class GamePage implements OnInit {
     });
     await alert.present();
     let result = await alert.onDidDismiss();
+    this.next();
   }
 
   async presentAlertIncorrectAsnwer(){
@@ -78,5 +80,24 @@ export class GamePage implements OnInit {
     });
     await alert.present();
     let result = await alert.onDidDismiss();
+  }
+
+  async presentAlertHelp(){
+    const alert = await this.alertController.create({
+      header : "Pista",
+      message : this.helpAnswer,
+      buttons : ["OK"] 
+    });
+    await alert.present();
+    let result = await alert.onDidDismiss();
+  }
+
+  next(){
+    this.questionNumber = ++this.questionNumber;
+    this.getQuestions();
+  }
+
+  help(){
+    this.presentAlertHelp();
   }
 }
