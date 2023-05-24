@@ -19,6 +19,11 @@
         "question" : "quien descubrió la gravedad",
         "answer" : "isaac newton",
         "help" : "Tiene su propia fórmula"
+    },
+    {
+        "question" : "¿Cuál es la capital de Francia?",
+        "answer" : "paris",
+        "help" : "Ciudad de los enamorados, dende está la famosa torre eiffel"
     }
     ]
 
