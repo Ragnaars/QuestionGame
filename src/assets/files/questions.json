@@ -1,0 +1,25 @@
+{
+    "data" : 
+    [{
+        "question" : "Hola como estas?",
+        "answer" : "bien",
+        "help" : "Es tu mejor estado de animo "
+    },
+    {
+        "question" : "pais mas Lego y angosto?",
+        "answer" : "Chile",
+        "help" : "Se encuentra en sudamerica"
+    },
+    {
+        "question" : "1+1",
+        "answer" : "2",
+        "help" : "Tiene la forma de un pato"
+    },
+    {
+        "question" : "quien descubrió la gravedad",
+        "answer" : "isaac newton",
+        "help" : "Tiene su propia fórmula"
+    }
+    ]
+
+}
