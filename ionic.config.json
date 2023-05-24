@@ -1,0 +1,7 @@
+{
+  "name": "preguntas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
