@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../service/api.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-game',
@@ -18,7 +19,8 @@ export class GamePage implements OnInit {
   formSendAnswer: FormGroup ;
   constructor(
     public formBuilder: FormBuilder,
-    private serviceApi : ApiService
+    private serviceApi : ApiService,
+    public alertController : AlertController
   ) { 
       this.formSendAnswer = this.formBuilder.group({
         answer : ["",Validators.required]
@@ -47,5 +49,34 @@ export class GamePage implements OnInit {
   sendAnswer(){
     let value = this.formSendAnswer.value;
     console.log("Respuesta Enviada",value)
+
+    if(value.answer.toLowerCase() == this.questionAnswer.toLowerCase()){
+      console.log("Respuesta Correcta");
+      this.presentAlertCorrectAsnwer();
+    }else{
+      console.log("Respuesta incorrecta");
+      this.presentAlertIncorrectAsnwer();
+    }
+  }
+
+
+  async presentAlertCorrectAsnwer(){
+    const alert = await this.alertController.create({
+      header : "Respuesta correcta",
+      message : "Vemamos que más sabes!",
+      buttons : ["OK"] 
+    });
+    await alert.present();
+    let result = await alert.onDidDismiss();
+  }
+
+  async presentAlertIncorrectAsnwer(){
+    const alert = await this.alertController.create({
+      header : "Respuesta incorrecta",
+      message : "Vuelve a intentarlo, seguro puedes!",
+      buttons : ["OK"] 
+    });
+    await alert.present();
+    let result = await alert.onDidDismiss();
   }
 }
