@@ -22,9 +22,10 @@ export class GamePage implements OnInit {
   frases: any = [];
   questionLength: any;
   scoreTotal : any = 0;
-  score: any;
+  score: any = 0;
   lives: number = 3;
   livesArray: number[] = [];
+  random: any;
 
   constructor(
     public router : Router,
@@ -51,11 +52,12 @@ export class GamePage implements OnInit {
       }
     }
 
+    
   ngOnInit() {
   
     AdMob.initialize({
       requestTrackingAuthorization: true,
-      testingDevices: ['eb9e8f3c-9f0b-4e13-9a93-4823ebcff866'],
+      testingDevices: ['ff8c0041-084f-4030-90cf-47ef7619743a'],
       initializeForTesting: true,
     });
     this.showBanner();
@@ -63,8 +65,10 @@ export class GamePage implements OnInit {
 
   ionViewWillEnter() {
     this.questionNumber = localStorage.getItem('questionNumber');
-    if(!this.questionNumber){
+    this.scoreTotal = localStorage.getItem('score');
+    if(!this.questionNumber && this.scoreTotal){
       this.questionNumber = 0;
+      this.scoreTotal = 0;
     }
     
   const storedLives = localStorage.getItem('lives');
@@ -85,12 +89,12 @@ export class GamePage implements OnInit {
       (res : any ) =>{
         this.questions = res;
         this.questionLength = this.questions.length -1;
+        this.random = this.getRandomInt(0,this.questionLength);
         console.log("Cantidad de preguntas : ", this.questionLength)
-        this.questionTitle = this.questions[this.questionNumber].question;
-        this.questionAnswer = this.questions[this.questionNumber].answer;
-        this.helpAnswer = this.questions[this.questionNumber].help;
-        this.score = this.questions[this.questionNumber].score;
-        console.log(this.questions);
+        this.questionTitle = this.questions[this.random].question;
+        this.questionAnswer = this.questions[this.random].answer;
+        this.helpAnswer = this.questions[this.random].help;
+        this.score = this.questions[this.random].score;
         if(!this.questionTitle){
           this.presentAlertWin();
         }
@@ -128,7 +132,8 @@ export class GamePage implements OnInit {
       console.log("Respuesta Correcta");
       this.formSendAnswer.reset();
       this.increaseLife();
-      this.scoreTotal = this.scoreTotal + this.score;
+      this.scoreTotal = Number(this.scoreTotal) + Number(this.score);
+      localStorage.setItem('score',this.scoreTotal);
       this.presentAlertCorrectAsnwer();
       ;
     }else{
@@ -215,6 +220,7 @@ export class GamePage implements OnInit {
     if(this.questionNumber < this.questionLength){
       this.questionNumber = ++this.questionNumber;
       localStorage.setItem("questionNumber",this.questionNumber)
+      this.questions.splice(this.random);
       this.getQuestions();
     }else{
       this.presentAlertWin();

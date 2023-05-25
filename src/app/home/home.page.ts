@@ -24,6 +24,7 @@ export class HomePage implements AfterViewInit {
       ) {}
 
   ngAfterViewInit() {
+    this.toggleAnimation()
     this.startAnimation();
   }
 
@@ -54,11 +55,12 @@ export class HomePage implements AfterViewInit {
   async presentAlertStart(){
     const alert = await this.alertController.create({
       header : "¿Deseas comenzar de 0?",
-      message : "Perderás todo el progreso",
+      message : "Perderás tu score : "+ localStorage.getItem('score'),
       buttons : [{
         text: "SI",
         handler : ()=>{
           localStorage.setItem("questionNumber","0");
+          localStorage.setItem("score","0")
           this.router.navigate(["/game"]);
         }
       },
