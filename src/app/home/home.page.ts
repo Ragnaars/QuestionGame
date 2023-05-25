@@ -55,4 +55,8 @@ export class HomePage {
     let result = await alert.onDidDismiss();
   }
 
+  insta(){
+    window.open("https://www.instagram.com/ragnaarson/",'_system','location=yes')
+  }
+
 }

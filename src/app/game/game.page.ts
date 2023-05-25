@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../service/api.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import {Router} from '@angular/router'; 
 
 @Component({
   selector: 'app-game',
@@ -18,7 +19,9 @@ export class GamePage implements OnInit {
   questionNumber : any;
   formSendAnswer: FormGroup ;
   frases: any = [];
+  questionLength: any;
   constructor(
+    public router : Router,
     public formBuilder: FormBuilder,
     private serviceApi : ApiService,
     public alertController : AlertController
@@ -46,14 +49,29 @@ export class GamePage implements OnInit {
     this.serviceApi.getQuestions().subscribe(
       (res : any ) =>{
         this.questions = res;
+        this.questionLength = this.questions.length -1;
+        console.log("Cantidad de preguntas : ", this.questionLength)
         this.questionTitle = this.questions[this.questionNumber].question;
         this.questionAnswer = this.questions[this.questionNumber].answer;
         this.helpAnswer = this.questions[this.questionNumber].help;
         console.log(this.questions);
+        if(!this.questionTitle){
+          this.presentAlertWin();
+        }
       }, (err:any) =>{
         console.log("error : ",err)
       }
     );
+  }
+
+  async presentAlertWin(){
+    const alert = await this.alertController.create({
+      header : "Eres un genio!",
+      message : "lograste finalizar el juego a como dio lugar",
+      buttons : ["Gracias"] 
+    });
+    await alert.present();
+    let result = await alert.onDidDismiss();
   }
 
   getFrases(){
@@ -119,9 +137,16 @@ export class GamePage implements OnInit {
   }
 
   next(){
-    this.questionNumber = ++this.questionNumber;
-    localStorage.setItem('questionNumber',this.questionNumber);
-    this.getQuestions();
+    if(this.questionNumber < this.questionLength){
+      this.questionNumber = ++this.questionNumber;
+      localStorage.setItem("questionNumber",this.questionNumber)
+      this.getQuestions();
+    }else{
+      this.presentAlertWin();
+      this.router.navigate(["/home"]);
+    }
+    
+    
   }
 
   help(){
