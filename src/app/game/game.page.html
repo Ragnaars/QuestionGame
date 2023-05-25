@@ -1,49 +1,46 @@
 <ion-header>
-  <ion-title style = "text-align: center;"> pregunta {{questionNumber}}</ion-title>
+  <ion-title style="text-align: center;">pregunta {{questionNumber}}</ion-title>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <ion-grid class = "ion-text-center">
+  <ion-grid class="ion-text-center">
     <ion-row>
-      <ion-col size = "12" >
-        <div class = "question">
+      <ion-col size="12">
+        <div class="question">
           {{questionTitle}}
         </div>
       </ion-col>
     </ion-row>
-    <form [formGroup] = "formSendAnswer" (ngSubmit) = "sendAnswer()">
+    <form [formGroup]="formSendAnswer" (ngSubmit)="sendAnswer()">
       <ion-row>
-        <ion-col size = "6" >
-          <ion-input 
-            placeholder = "_" 
-            formControlName = "answer" 
-            type = "text">Respuesta</ion-input>
+        <ion-col size="6">
+          <ion-input placeholder="_" formControlName="answer" type="text">Respuesta</ion-input>
         </ion-col>
-        <ion-col size = "6" >
-          <ion-button type = "submit">Enviar</ion-button>
+        <ion-col size="6">
+          <ion-button type="submit">Enviar</ion-button>
         </ion-col>
       </ion-row>
     </form>
   </ion-grid>
-
 </ion-content>
-<ion-toolbar>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
-        <ion-icon name="home" [routerLink] = "['/home']"></ion-icon>
-        Inicio
-      </ion-tab-button >
-      <ion-tab-button (click)="help()" tab="radio">
-        <ion-icon name="help"></ion-icon>
-        Ayuda
-      </ion-tab-button>
-      <ion-tab-button (click)="next()" tab="library">
-        <ion-icon name="arrow-forward"></ion-icon>
-        Siguiente
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-toolbar>
 
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home">
+          <ion-icon name="home" [routerLink]="['/home']"></ion-icon>
+          Inicio
+        </ion-tab-button>
+        <ion-tab-button (click)="help()" tab="radio">
+          <ion-icon name="help"></ion-icon>
+          Ayuda
+        </ion-tab-button>
+        <ion-tab-button (click)="next()" tab="library">
+          <ion-icon name="arrow-forward"></ion-icon>
+          Siguiente
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

@@ -3,6 +3,7 @@ import {ApiService} from "../service/api.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import {Router} from '@angular/router'; 
+import { AdMob, AdOptions, BannerAdOptions, BannerAdSize, BannerAdPosition, BannerAdPluginEvents, AdMobBannerSize } from '@capacitor-community/admob';
 
 @Component({
   selector: 'app-game',
@@ -32,7 +33,12 @@ export class GamePage implements OnInit {
     }
 
   ngOnInit() {
-  
+    AdMob.initialize({
+      requestTrackingAuthorization: true,
+      testingDevices: ['eb9e8f3c-9f0b-4e13-9a93-4823ebcff866'],
+      initializeForTesting: true,
+    });
+    this.showBanner();
   }
 
   ionViewWillEnter() {
@@ -149,7 +155,29 @@ export class GamePage implements OnInit {
     
   }
 
+  async showAdsInterstitial(){
+    const options: AdOptions ={
+      adId : "ca-app-pub-8865078809185990/7060238262",
+      isTesting : true,
+    };
+    await AdMob.prepareInterstitial(options);
+    await AdMob.showInterstitial();
+  }
+
+  async showBanner(){
+    const options : BannerAdOptions ={
+      adId : "ca-app-pub-8865078809185990/8201929547",
+      isTesting : true,
+      adSize : BannerAdSize.ADAPTIVE_BANNER,
+      position : BannerAdPosition.BOTTOM_CENTER,
+      margin : -80,
+    };
+    await AdMob.showBanner(options);
+    await AdMob.showInterstitial();
+  }
+
   help(){
     this.presentAlertHelp();
+    this.showAdsInterstitial();
   }
 }
