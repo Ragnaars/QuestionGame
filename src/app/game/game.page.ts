@@ -17,6 +17,7 @@ export class GamePage implements OnInit {
   helpAnswer: any;
   questionNumber : any;
   formSendAnswer: FormGroup ;
+  frases: any = [];
   constructor(
     public formBuilder: FormBuilder,
     private serviceApi : ApiService,
@@ -29,6 +30,7 @@ export class GamePage implements OnInit {
 
   ngOnInit() {
     this.getQuestions();
+    this.getFrases();
     this.questionNumber = 0;
   }
 
@@ -41,6 +43,17 @@ export class GamePage implements OnInit {
         this.questionAnswer = this.questions[this.questionNumber].answer;
         this.helpAnswer = this.questions[this.questionNumber].help;
         console.log(this.questions);
+      }, (err:any) =>{
+        console.log("error : ",err)
+      }
+    );
+  }
+
+  getFrases(){
+    this.serviceApi.getFrases().subscribe(
+      (res : any ) =>{
+        this.frases = res;
+        console.log("frases : " ,this.questions);
       }, (err:any) =>{
         console.log("error : ",err)
       }
@@ -75,11 +88,17 @@ export class GamePage implements OnInit {
   async presentAlertIncorrectAsnwer(){
     const alert = await this.alertController.create({
       header : "Respuesta incorrecta",
-      message : "Vuelve a intentarlo, seguro puedes!",
+      message : this.frases[this.getRandomInt(0,11)].answer,
       buttons : ["OK"] 
     });
     await alert.present();
     let result = await alert.onDidDismiss();
+  }
+
+  getRandomInt(min : any ,max : any){
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min +1)) + min;
   }
 
   async presentAlertHelp(){

@@ -19,5 +19,13 @@ export class ApiService {
     )
   }
 
+  getFrases(){
+    return this.http.get('../../assets/files/questions.json').pipe(
+      map((res : any)=>{
+        return res.frases;
+      })
+    )
+  }
+
   
 }
