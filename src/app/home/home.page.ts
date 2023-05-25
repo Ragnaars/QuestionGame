@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular'; 
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
   
-  constructor( public router : Router) {}
+  constructor( public router : Router,
+              public alertController : AlertController
+      ) {}
 
   
   
@@ -23,7 +26,33 @@ export class HomePage {
   }
 
   start(){
+    this.presentAlertStart();
+    
+  }
+
+  continue(){
     this.router.navigate(["/game"]);
+  }
+
+  async presentAlertStart(){
+    const alert = await this.alertController.create({
+      header : "¿Deseas comenzar de 0?",
+      message : "Perderás todo el progreso",
+      buttons : [{
+        text: "SI",
+        handler : ()=>{
+          localStorage.setItem("questionNumber","0");
+          this.router.navigate(["/game"]);
+        }
+      },
+      {
+        text: "NO",
+        handler : ()=>{
+        }
+      }]
+    });
+    await alert.present();
+    let result = await alert.onDidDismiss();
   }
 
 }

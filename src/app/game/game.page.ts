@@ -29,9 +29,16 @@ export class GamePage implements OnInit {
     }
 
   ngOnInit() {
+  
+  }
+
+  ionViewWillEnter() {
+    this.questionNumber = localStorage.getItem('questionNumber');
+    if(!this.questionNumber){
+      this.questionNumber = 0;
+    }
     this.getQuestions();
     this.getFrases();
-    this.questionNumber = 0;
   }
 
 
@@ -113,6 +120,7 @@ export class GamePage implements OnInit {
 
   next(){
     this.questionNumber = ++this.questionNumber;
+    localStorage.setItem('questionNumber',this.questionNumber);
     this.getQuestions();
   }
 
