@@ -1,19 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular'; 
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  animations: [
+    trigger('slideAnimation', [
+      state('inactive', style({ transform: 'translateX(-100%)' })),
+      state('active', style({ transform: 'translateX(0)' })),
+      transition('inactive => active', animate('1s')),
+    ]),
+  ],
 })
-export class HomePage {
+export class HomePage implements AfterViewInit {
+  @ViewChild('footer')
+  footer!: ElementRef;
   
   constructor( public router : Router,
               public alertController : AlertController
       ) {}
 
-  
+  ngAfterViewInit() {
+    this.startAnimation();
+  }
+
+  startAnimation() {
+    this.footer.nativeElement.style.opacity = '1';
+    this.footer.nativeElement.style.transform = 'translateX(0)';
+  }
   
   ngOnInit() {
   
@@ -54,6 +71,8 @@ export class HomePage {
     await alert.present();
     let result = await alert.onDidDismiss();
   }
+  
+  
 
   insta(){
     window.open("https://www.instagram.com/ragnaarson/",'_system','location=yes')

@@ -21,6 +21,8 @@ export class GamePage implements OnInit {
   formSendAnswer: FormGroup ;
   frases: any = [];
   questionLength: any;
+  scoreTotal : any = 0;
+  score: any;
   constructor(
     public router : Router,
     public formBuilder: FormBuilder,
@@ -60,6 +62,7 @@ export class GamePage implements OnInit {
         this.questionTitle = this.questions[this.questionNumber].question;
         this.questionAnswer = this.questions[this.questionNumber].answer;
         this.helpAnswer = this.questions[this.questionNumber].help;
+        this.score = this.questions[this.questionNumber].score;
         console.log(this.questions);
         if(!this.questionTitle){
           this.presentAlertWin();
@@ -97,6 +100,7 @@ export class GamePage implements OnInit {
 
     if(value.answer.toLowerCase() == this.questionAnswer.toLowerCase()){
       console.log("Respuesta Correcta");
+      this.scoreTotal = this.scoreTotal + this.score;
       this.presentAlertCorrectAsnwer();
     }else{
       console.log("Respuesta incorrecta");
@@ -169,8 +173,8 @@ export class GamePage implements OnInit {
       adId : "ca-app-pub-8865078809185990/8201929547",
       isTesting : true,
       adSize : BannerAdSize.ADAPTIVE_BANNER,
-      position : BannerAdPosition.BOTTOM_CENTER,
-      margin : -80,
+      position : BannerAdPosition.TOP_CENTER,
+      margin : 0,
     };
     await AdMob.showBanner(options);
     await AdMob.showInterstitial();

@@ -91,3 +91,71 @@ ion-button {
   --color-disabled: #ffffff;
   --border-radius-disabled: 15px;
 }
+
+ion-button:active {
+  transform: scale(0.95);
+}
+
+footer {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  animation: slideAnimation 4s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instagram-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.instagram-username {
+  font-size: 18px;
+  font-weight: bold;
+}
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  animation: slideFooter 4s ease-in-out infinite;
+}
+
+@keyframes slideFooter {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.footer-container {
+  animation: slide 1s;
+}
+
+.footer-container.inactive {
+  animation: none;
+}

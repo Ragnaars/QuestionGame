@@ -1,9 +1,25 @@
 .question {
-    font-size: 24px;
-    font-family: Arial, sans-serif;
-  }
-  
-  ion-input, ion-button {
-    font-size: 18px;
-    font-family: Arial, sans-serif;
-  }
+  font-size: 28px;
+  margin-top: 40px;
+}
+
+ion-row {
+  margin-bottom: 20px;
+}
+
+ion-input {
+  margin-top: 10px;
+}
+
+ion-button[type='submit'] {
+  margin-top: 10px;
+}
+
+ion-col[size='12'] {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer-toolbar {
+  --ion-background-color: #f4f4f4;
+}
