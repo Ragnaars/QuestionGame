@@ -59,7 +59,128 @@
             "answer": "El amor",
             "help": "Pista: Es un sentimiento universal que mueve al mundo.",
             "score": 800
+        },
+        {
+            "question": "¿Cuál es la capital de España?",
+            "answer": "Madrid",
+            "help": "Pista: Esta ciudad alberga el famoso estadio de fútbol Santiago Bernabéu.",
+            "score": 600
+        },
+        {
+            "question": "¿Quién escribió la famosa obra 'Romeo y Julieta'?",
+            "answer": "William Shakespeare",
+            "help": "Pista: Es considerado uno de los escritores más influyentes de la literatura universal.",
+            "score": 700
+        },
+        {
+            "question": "¿Cuál es el río más largo del mundo?",
+            "answer": "El río Amazonas",
+            "help": "Pista: Fluye a través de Sudamérica y desemboca en el océano Atlántico.",
+            "score": 800
+        },
+        {
+            "question": "¿Cuál es el elemento químico con el símbolo 'Fe'?",
+            "answer": "El hierro",
+            "help": "Pista: Es un metal de color gris plateado y se encuentra en muchos minerales.",
+            "score": 500
+        },
+        {
+            "question": "¿En qué año comenzó la Segunda Guerra Mundial?",
+            "answer": "1939",
+            "help": "Pista: Fue el conflicto armado más grande de la historia y duró hasta 1945.",
+            "score": 600
+        },
+        {
+            "question": "¿Cuál es el animal más rápido del mundo?",
+            "answer": "El guepardo",
+            "help": "Pista: Es conocido por su velocidad y puede alcanzar hasta 100 km/h en carreras cortas.",
+            "score": 700
+        },
+        {
+            "question": "¿Cuál es el país con la mayor población del mundo?",
+            "answer": "China",
+            "help": "Pista: Es un país ubicado en Asia y cuenta con más de 1.400 millones de habitantes.",
+            "score": 800
+        },
+        {
+            "question": "¿Cuál es el nombre del famoso cuadro de Edvard Munch que representa una figura con una expresión de angustia?",
+            "answer": "El grito",
+            "help": "Pista: Es una de las obras más reconocidas del arte moderno.",
+            "score": 600
+        },
+        {
+            "question": "¿Cuál es el ave más grande del mundo?",
+            "answer": "El avestruz",
+            "help": "Pista: Es un ave no voladora y puede llegar a medir hasta 2.7 metros de altura.",
+            "score": 700
+        },
+        {
+            "question": "¿Cuál es el resultado de sumar 2 más 2?",
+            "answer": "4",
+            "help": "Pista: Es el número que obtienes al agregar dos unidades a otras dos unidades.",
+            "score": 800
+        },
+        {
+            "question": "¿Cuál es el país más grande del mundo en términos de superficie?",
+            "answer": "Rusia",
+            "help": "Pista: Se extiende por Europa del Este y Asia del Norte, abarcando una gran parte del territorio.",
+            "score": 600
+        },
+        {
+            "question": "¿Quién pintó el famoso cuadro 'La noche estrellada'?",
+            "answer": "Vincent van Gogh",
+            "help": "Pista: Es uno de los artistas más influyentes del siglo XIX y su estilo es reconocido en todo el mundo.",
+            "score": 700
+        },
+        {
+            "question": "¿Cuál es el país conocido como 'la tierra de los faraones'?",
+            "answer": "Egipto",
+            "help": "Pista: Es famoso por sus antiguas pirámides y el río Nilo que lo atraviesa.",
+            "score": 800
+        },
+        {
+            "question": "¿Cuál es el elemento químico con el símbolo 'Hg'?",
+            "answer": "Mercurio",
+            "help": "Pista: Es un metal líquido plateado y se encuentra en termómetros y lámparas fluorescentes.",
+            "score": 500
+        },
+        {
+            "question": "¿En qué año se fundó la compañía Apple?",
+            "answer": "1976",
+            "help": "Pista: Fue fundada por Steve Jobs, Steve Wozniak y Ronald Wayne en un garaje.",
+            "score": 600
+        },
+        {
+            "question": "¿Cuál es el animal terrestre más grande del mundo?",
+            "answer": "El elefante africano",
+            "help": "Pista: Es conocido por su gran tamaño, largas trompas y colmillos.",
+            "score": 700
+        },
+        {
+            "question": "¿Cuál es el país con la mayor cantidad de islas en el mundo?",
+            "answer": "Suecia",
+            "help": "Pista: Tiene más de 267,570 islas e islotes, muchos de ellos deshabitados.",
+            "score": 800
+        },
+        {
+            "question": "¿Cuál es el nombre del famoso escultor italiano que creó la estatua de 'David'?",
+            "answer": "Miguel Ángel",
+            "help": "Pista: También es conocido por pintar la Capilla Sixtina en el Vaticano.",
+            "score": 600
+        },
+        {
+            "question": "¿Cuál es el felino más grande de América?",
+            "answer": "El jaguar",
+            "help": "Pista: Es conocido por su fuerza y belleza, y es nativo de las selvas y bosques de América.",
+            "score": 700
+        },
+        {
+            "question": "¿Cuál es el resultado de multiplicar 8 por 7?",
+            "answer": "56",
+            "help": "Pista: Puedes obtener el resultado sumando 8 siete veces o 7 ocho veces.",
+            "score": 800
         }
+    
     ],
     "frases": [
         {

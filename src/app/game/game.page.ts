@@ -23,18 +23,36 @@ export class GamePage implements OnInit {
   questionLength: any;
   scoreTotal : any = 0;
   score: any;
+  lives: number = 3;
+  livesArray: number[] = [];
+
   constructor(
     public router : Router,
     public formBuilder: FormBuilder,
     private serviceApi : ApiService,
     public alertController : AlertController
   ) { 
+      this.lives = 3;
+      this.generateLivesArray();
       this.formSendAnswer = this.formBuilder.group({
         answer : ["",Validators.required]
       })
     }
 
+    generateLivesArray() {
+      this.livesArray = Array(this.lives).fill(0);
+    }
+    increaseLife() {
+      if (this.lives < 5) {
+        this.lives++;
+        this.generateLivesArray();
+      } else {
+        this.lives = 5;
+      }
+    }
+
   ngOnInit() {
+  
     AdMob.initialize({
       requestTrackingAuthorization: true,
       testingDevices: ['eb9e8f3c-9f0b-4e13-9a93-4823ebcff866'],
@@ -48,6 +66,15 @@ export class GamePage implements OnInit {
     if(!this.questionNumber){
       this.questionNumber = 0;
     }
+    
+  const storedLives = localStorage.getItem('lives');
+  if (storedLives) {
+    this.lives = parseInt(storedLives, 10);
+  } else {
+    this.lives = 3;
+  }
+
+  this.generateLivesArray();
     this.getQuestions();
     this.getFrases();
   }
@@ -97,17 +124,39 @@ export class GamePage implements OnInit {
   sendAnswer(){
     let value = this.formSendAnswer.value;
     console.log("Respuesta Enviada",value)
-
-    if(value.answer.toLowerCase() == this.questionAnswer.toLowerCase()){
+    if(this.omitirTildes(value.answer.toLowerCase()) == this.omitirTildes(this.questionAnswer.toLowerCase())){
       console.log("Respuesta Correcta");
+      this.formSendAnswer.reset();
+      this.increaseLife();
       this.scoreTotal = this.scoreTotal + this.score;
       this.presentAlertCorrectAsnwer();
+      ;
     }else{
       console.log("Respuesta incorrecta");
+      this.formSendAnswer.reset();
+      this.lives--;
+      this.generateLivesArray();
+      if (this.lives === 0) {
+        // Realizar alguna acción cuando se queden sin vidas
+        console.log('Se quedó sin vidas');
+        
+        this.router.navigate(['/home'])
+        localStorage.setItem('questionNumber',"0");
+        
+      }
       this.presentAlertIncorrectAsnwer();
     }
   }
-
+  async presentAlertWithoutLives(){
+    const alert = await this.alertController.create({
+      header : "Vuelve a intentarlo",
+      message : "Se te han acabado las vidas",
+      buttons : ["Reintentar"] 
+    });
+    await alert.present();
+    let result = await alert.onDidDismiss();
+    this.next();
+  }
 
   async presentAlertCorrectAsnwer(){
     const alert = await this.alertController.create({
@@ -118,6 +167,22 @@ export class GamePage implements OnInit {
     await alert.present();
     let result = await alert.onDidDismiss();
     this.next();
+  }
+  omitirTildes(texto: string): string {
+    const tildes: { [key: string]: string } = {
+      á: 'a',
+      é: 'e',
+      í: 'i',
+      ó: 'o',
+      ú: 'u',
+      Á: 'A',
+      É: 'E',
+      Í: 'I',
+      Ó: 'O',
+      Ú: 'U'
+    };
+  
+    return texto.replace(/[áéíóúÁÉÍÓÚ]/g, (match) => tildes[match]);
   }
 
   async presentAlertIncorrectAsnwer(){

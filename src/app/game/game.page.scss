@@ -1,25 +1,25 @@
-.question {
-  font-size: 28px;
-  margin-top: 40px;
+.card-container {
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-ion-row {
-  margin-bottom: 20px;
+.input-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-ion-input {
-  margin-top: 10px;
+.heart-icon {
+  font-size: 48px;
+  color: red;
+  transition: transform 0.2s ease-in-out;
 }
 
-ion-button[type='submit'] {
-  margin-top: 10px;
-}
-
-ion-col[size='12'] {
-  font-size: 20px;
-  font-weight: bold;
+.heart-icon:hover {
+  transform: scale(1.2);
 }
 
 .footer-toolbar {
-  --ion-background-color: #f4f4f4;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
