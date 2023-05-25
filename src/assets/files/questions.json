@@ -1,30 +1,119 @@
 {
-    "data" : 
-    [{
-        "question" : "Hola como estas?",
-        "answer" : "bien",
-        "help" : "Es tu mejor estado de animo "
-    },
-    {
-        "question" : "pais mas Largo y angosto?",
-        "answer" : "Chile",
-        "help" : "Se encuentra en sudamerica"
-    },
-    {
-        "question" : "1+1",
-        "answer" : "2",
-        "help" : "Tiene la forma de un pato"
-    },
-    {
-        "question" : "quien descubrió la gravedad",
-        "answer" : "isaac newton",
-        "help" : "Tiene su propia fórmula"
-    },
-    {
-        "question" : "¿Cuál es la capital de Francia?",
-        "answer" : "paris",
-        "help" : "Ciudad de los enamorados, dende está la famosa torre eiffel"
-    }
+    "data": [
+        {
+            "question": "¿Cuál es la capital de Francia?",
+            "answer": "París",
+            "help": "Pista: Es conocida como la Ciudad del Amor."
+        },
+        {
+            "question": "¿Cuál es el río más largo del mundo?",
+            "answer": "El Nilo",
+            "help": "Pista: Fluye a través de varios países africanos."
+        },
+        {
+            "question": "¿Cuál es el país con más población?",
+            "answer": "China",
+            "help": "Pista: Está ubicado en Asia y tiene más de 1.4 mil millones de habitantes."
+        },
+        {
+            "question": "¿Cuál es el resultado de multiplicar 0 por cualquier número?",
+            "answer": "0",
+            "help": "Pista: Cualquier número multiplicado por cero es igual a cero."
+        },
+        {
+            "question": "¿Qué animal es conocido como el 'Rey de la selva'?",
+            "answer": "El león",
+            "help": "Pista: Es un felino y tiene una melena distintiva."
+        },
+        {
+            "question": "¿Cuál es el color del cielo en un día despejado?",
+            "answer": "Azul",
+            "help": "Pista: Es el color que percibimos cuando miramos hacia arriba."
+        },
+        {
+            "question": "¿Cuántas patas tiene un insecto típico?",
+            "answer": "6",
+            "help": "Pista: La mayoría de los insectos tienen esta cantidad de patas."
+        },
+        {
+            "question": "¿Cuál es la respuesta a la vida, el universo y todo?",
+            "answer": "42",
+            "help": "Pista: Esta pregunta es famosa en la obra de Douglas Adams, 'The Hitchhiker's Guide to the Galaxy'."
+        },
+        {
+            "question": "¿Cuál es el mejor lenguaje de programación?",
+            "answer": "Eso es subjetivo, ¡todos son geniales!",
+            "help": "Pista: No hay una respuesta correcta, depende de las preferencias y necesidades de cada persona."
+        },
+        {
+            "question": "¿Cuál es el apellido del presidente de Estados Unidos?",
+            "answer": "Varía según el presidente",
+            "help": "Pista: El apellido del presidente actual puede ser diferente al de otros presidentes anteriores o futuros."
+        },
+        {
+            "question": "¿Cuál es la respuesta a la pregunta más difícil?",
+            "answer": "Esta respuesta",
+            "help": "Pista: La respuesta está en la pregunta misma."
+        },
+        {
+            "question": "¿Cuántas islas conforman el archipiélago de Hawái?",
+            "answer": "137",
+            "help": "Pista: Hawái está formado por un grupo de islas en el océano Pacífico."
+        },
+        {
+            "question": "¿Cuál es el ave más grande del mundo?",
+            "answer": "El avestruz",
+            "help": "Pista: Es un ave no voladora y puede alcanzar alturas impresionantes."
+        }
+    ],
+    "frases": [
+        {
+            "answer" :  "¡Vaya, esa no era la respuesta correcta! ¿Seguro que no necesitas un poco más de café?" 
+        }
+        ,
+        {
+            "answer" :   "Ups, esa no era la respuesta. No te preocupes, todos hemos tenido un día así."  
+        }
+        ,
+        {
+            "answer" :  "¡Incorrecto! Tal vez deberías considerar una carrera como adivino cómico."  
+        }
+        ,
+        {
+            "answer" :   "Oh no, esa respuesta no es la correcta. Parece que el gato se comió tus conocimientos."
+        }
+        ,
+        {
+            "answer" :  "¡Ja, ja! Esa no era la respuesta correcta. Tal vez deberías consultar con el oráculo la próxima vez."  
+        }
+        ,
+        {
+            "answer" :   "¿En serio esa fue tu respuesta? Creo que necesitas un descanso y una buena dosis de risas."  
+        }
+        ,
+        {
+            "answer" :   "Esa no era la respuesta correcta, pero al menos te ganaste una sonrisa por tu intento."
+        }
+        ,
+        {
+            "answer" :   "Pregunta incorrecta, pero seguro que tienes otras habilidades impresionantes. ¿Malabarismo, tal vez?"  
+        }
+        ,
+        {
+            "answer" :    "¡No es la respuesta correcta! Parece que alguien se quedó sin batería en el cerebro."
+        }
+        ,
+        {
+            "answer" :    
+            "Error, error. ¡Mejor suerte la próxima vez! ¿Quizás necesitas un poco de helado para animarte?"
+        }
+        ,
+        {
+            "answer" : "¡Equivocado! No te preocupes, incluso los superhéroes tienen sus días malos."
+        },
+        {
+            "answer" :  "Oh, esa no era la respuesta correcta. Quizás deberías tomar un desvío por la tierra de los chistes."
+        }
     ]
 
 }
