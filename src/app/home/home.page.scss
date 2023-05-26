@@ -159,14 +159,10 @@ footer {
 .footer-container.inactive {
   animation: none;
 }
-.static-content {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
 .fixed-footer {
   position: fixed;
+  z-index: 100; /* Agrega un índice z alto si es necesario */
   bottom: 0;
   left: 0;
   width: 100%;
@@ -174,4 +170,13 @@ footer {
 
 img#shakeImage {
   margin-top: 20px; /* Ajusta la cantidad de margen superior según tus necesidades */
+}
+.content {
+  margin-bottom: 50px; /* Ajusta la cantidad de margen inferior según tus necesidades */
+}
+.static-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
