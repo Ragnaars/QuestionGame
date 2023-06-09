@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import {Router} from '@angular/router'; 
 import { AdMob, AdOptions, BannerAdOptions, BannerAdSize, BannerAdPosition, BannerAdPluginEvents, AdMobBannerSize } from '@capacitor-community/admob';
+import { ItemReorderEventDetail } from '@ionic/angular';
 
 @Component({
   selector: 'app-game',
@@ -15,7 +16,7 @@ export class GamePage implements OnInit {
   //variables
   questions : any = [];
   questionTitle: any;
-  questionAnswer: any;
+  questionAnswer: any ;
   helpAnswer: any;
   questionNumber : any;
   formSendAnswer: FormGroup ;
@@ -26,6 +27,7 @@ export class GamePage implements OnInit {
   lives: number = 3;
   livesArray: number[] = [];
   random: any;
+  options :any = [];
 
   constructor(
     public router : Router,
@@ -38,6 +40,17 @@ export class GamePage implements OnInit {
       this.formSendAnswer = this.formBuilder.group({
         answer : ["",Validators.required]
       })
+    }
+
+    handleReorder(ev: CustomEvent<ItemReorderEventDetail>) {
+      // The `from` and `to` properties contain the index of the item
+      // when the drag started and ended, respectively
+      console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
+  
+      // Finish the reorder and position the item in the DOM based on
+      // where the gesture ended. This method can also be called directly
+      // by the reorder group
+      ev.detail.complete();
     }
 
     generateLivesArray() {
@@ -95,6 +108,8 @@ export class GamePage implements OnInit {
         this.questionAnswer = this.questions[this.random].answer;
         this.helpAnswer = this.questions[this.random].help;
         this.score = this.questions[this.random].score;
+        this.options = this.questions[this.random].options;
+        
         if(!this.questionTitle){
           this.presentAlertWin();
         }
