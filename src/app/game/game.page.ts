@@ -54,7 +54,7 @@ export class GamePage implements OnInit {
       this.options.splice(finalIndex, 0, movedItem);
 
        // Muestra el arreglo de opciones en el nuevo orden
-    console.log('Nuevo orden de opciones:', this.options);
+  console.log('Nuevo orden de opciones:', this.options);
   
       // Finish the reorder and position the item in the DOM based on
       // where the gesture ended. This method can also be called directly
@@ -175,7 +175,26 @@ export class GamePage implements OnInit {
     //   }
     //   this.presentAlertIncorrectAsnwer();
     // }
-    
+
+    if(this.options[0] === this.questionAnswer){
+      console.log("SI");
+      this.increaseLife();
+      this.scoreTotal = Number(this.scoreTotal) + Number(this.score);
+      localStorage.setItem('score',this.scoreTotal);
+      this.presentAlertCorrectAsnwer();
+    }else{
+      console.log("no")
+      this.lives--;
+      this.generateLivesArray();
+        
+      if (this.lives === 0) {
+            // Realizar alguna acción cuando se queden sin vidas
+        console.log('Se quedó sin vidas');
+        this.router.navigate(['/home'])
+        localStorage.setItem('questionNumber',"0");
+        }
+      this.presentAlertIncorrectAsnwer();
+    }
   }
 
   async presentAlertWithoutLives(){
