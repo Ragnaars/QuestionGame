@@ -117,7 +117,7 @@ export class GamePage implements OnInit {
         this.questionAnswer = this.questions[this.random].answer;
         this.helpAnswer = this.questions[this.random].help;
         this.score = this.questions[this.random].score;
-        this.options = this.questions[this.random].options;
+        this.options = this.shuffleArray(this.questions[this.random].options);
         
         if(!this.questionTitle){
           this.presentAlertWin();
@@ -147,6 +147,14 @@ export class GamePage implements OnInit {
         console.log("error : ",err)
       }
     );
+  }
+
+  shuffleArray<T>(array: T[]): T[] {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
 
   sendAnswer(){
