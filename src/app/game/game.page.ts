@@ -43,9 +43,18 @@ export class GamePage implements OnInit {
     }
 
     handleReorder(ev: CustomEvent<ItemReorderEventDetail>) {
-      // The `from` and `to` properties contain the index of the item
-      // when the drag started and ended, respectively
-      console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
+      // console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to, 'detalle :',ev.detail);
+      const initialIndex = ev.detail.from;
+      const finalIndex = ev.detail.to;
+
+       // Obtén el elemento que se movió
+      const movedItem = this.options.splice(initialIndex, 1)[0];
+  
+       // Inserta el elemento en la nueva posición
+      this.options.splice(finalIndex, 0, movedItem);
+
+       // Muestra el arreglo de opciones en el nuevo orden
+    console.log('Nuevo orden de opciones:', this.options);
   
       // Finish the reorder and position the item in the DOM based on
       // where the gesture ended. This method can also be called directly
@@ -141,32 +150,34 @@ export class GamePage implements OnInit {
   }
 
   sendAnswer(){
-    let value = this.formSendAnswer.value;
-    console.log("Respuesta Enviada",value)
-    if(this.omitirTildes(value.answer.toLowerCase()) == this.omitirTildes(this.questionAnswer.toLowerCase())){
-      console.log("Respuesta Correcta");
-      this.formSendAnswer.reset();
-      this.increaseLife();
-      this.scoreTotal = Number(this.scoreTotal) + Number(this.score);
-      localStorage.setItem('score',this.scoreTotal);
-      this.presentAlertCorrectAsnwer();
-      ;
-    }else{
-      console.log("Respuesta incorrecta");
-      this.formSendAnswer.reset();
-      this.lives--;
-      this.generateLivesArray();
-      if (this.lives === 0) {
-        // Realizar alguna acción cuando se queden sin vidas
-        console.log('Se quedó sin vidas');
+    // let value = this.formSendAnswer.value;
+    // console.log("Respuesta Enviada",value)
+    // if(this.omitirTildes(value.answer.toLowerCase()) == this.omitirTildes(this.questionAnswer.toLowerCase())){
+    //   console.log("Respuesta Correcta");
+    //   this.formSendAnswer.reset();
+    //   this.increaseLife();
+    //   this.scoreTotal = Number(this.scoreTotal) + Number(this.score);
+    //   localStorage.setItem('score',this.scoreTotal);
+    //   this.presentAlertCorrectAsnwer();
+    //   ;
+    // }else{
+    //   console.log("Respuesta incorrecta");
+    //   this.formSendAnswer.reset();
+    //   this.lives--;
+    //   this.generateLivesArray();
+    //   if (this.lives === 0) {
+    //     // Realizar alguna acción cuando se queden sin vidas
+    //     console.log('Se quedó sin vidas');
         
-        this.router.navigate(['/home'])
-        localStorage.setItem('questionNumber',"0");
+    //     this.router.navigate(['/home'])
+    //     localStorage.setItem('questionNumber',"0");
         
-      }
-      this.presentAlertIncorrectAsnwer();
-    }
+    //   }
+    //   this.presentAlertIncorrectAsnwer();
+    // }
+    
   }
+
   async presentAlertWithoutLives(){
     const alert = await this.alertController.create({
       header : "Vuelve a intentarlo",
