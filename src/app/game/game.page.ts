@@ -273,7 +273,8 @@ export class GamePage implements OnInit {
     if(this.questionNumber < this.questionLength){
       this.questionNumber = ++this.questionNumber;
       localStorage.setItem("questionNumber",this.questionNumber)
-      this.questions.splice(this.random);
+      // this.questions.splice(this.random)
+      console.log("largo actual:", this.questions.length);
       this.getQuestions();
     }else{
       this.presentAlertWin();

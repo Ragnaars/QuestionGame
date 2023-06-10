@@ -188,6 +188,181 @@
           "help": "Pista: Es famosa por su torre Eiffel y el Louvre.",
           "score": 800,
           "options": ["París", "Roma", "Londres", "Berlín"]
+        },
+        {
+          "question": "¿Cuál es la capital de Argentina?",
+          "answer": "Buenos Aires",
+          "help": "Pista: Es conocida por el tango y la famosa avenida 9 de Julio.",
+          "score": 600,
+          "options": ["Buenos Aires", "Córdoba", "Mendoza", "Rosario"]
+        },
+        {
+          "question": "¿Cuál es el compositor de la famosa sinfonía 'La Novena'?",
+          "answer": "Ludwig van Beethoven",
+          "help": "Pista: Es considerada una de las obras maestras de la música clásica.",
+          "score": 700,
+          "options": ["Ludwig van Beethoven", "Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Franz Schubert"]
+        },
+        {
+          "question": "¿Cuál es el océano más profundo del mundo?",
+          "answer": "El océano Pacífico",
+          "help": "Pista: La Fosa de las Marianas, el punto más profundo de la Tierra, se encuentra en este océano.",
+          "score": 800,
+          "options": ["El océano Pacífico", "El océano Atlántico", "El océano Índico", "El océano Ártico"]
+        },
+        {
+          "question": "¿Cuántas patas tiene una araña?",
+          "answer": "8",
+          "help": "Pista: Las arañas pertenecen al grupo de los arácnidos y tienen esta cantidad de patas.",
+          "score": 500,
+          "options": ["6", "8", "10", "12"]
+        },
+        {
+          "question": "¿Quién escribió la famosa obra 'Hamlet'?",
+          "answer": "William Shakespeare",
+          "help": "Pista: Es una de las tragedias más conocidas del autor y se destaca por el soliloquio 'Ser o no ser'.",
+          "score": 600,
+          "options": ["William Shakespeare", "Miguel de Cervantes", "Jane Austen", "Fyodor Dostoyevsky"]
+        },
+        {
+          "question": "¿Cuál es el país más visitado del mundo?",
+          "answer": "Francia",
+          "help": "Pista: Atrae a millones de turistas cada año con destinos como la Torre Eiffel y el Museo del Louvre.",
+          "score": 700,
+          "options": ["Francia", "Estados Unidos", "España", "Italia"]
+        },
+        {
+          "question": "¿Cuál es el animal más venenoso del mundo?",
+          "answer": "La medusa de caja australiana",
+          "help": "Pista: Su veneno es extremadamente peligroso y puede ser mortal para los seres humanos.",
+          "score": 800,
+          "options": ["La medusa de caja australiana", "La serpiente de cascabel", "La araña de embudo", "El escorpión emperador"]
+        },
+        {
+          "question": "¿Cuál es el metal más preciado del mundo?",
+          "answer": "El platino",
+          "help": "Pista: Es valorado por su rareza y sus propiedades únicas, y se utiliza en joyería y en diversas industrias.",
+          "score": 800,
+          "options": ["El platino", "El oro", "El diamante", "El titanio"]
+        },
+        {
+          "question": "¿Cuál es el río más largo del mundo?",
+          "answer": "El río Amazonas",
+          "help": "Pista: Fluye a través de Sudamérica y desemboca en el océano Atlántico.",
+          "score": 800,
+          "options": ["El río Amazonas", "El río Nilo", "El río Yangtsé", "El río Misisipi"]
+        },
+        {
+          "question": "¿Cuál es la montaña más alta del mundo?",
+          "answer": "El monte Everest",
+          "help": "Pista: Se encuentra en la cordillera del Himalaya y alcanza una altura de 8,848 metros.",
+          "score": 900,
+          "options": ["El monte Everest", "El monte Kilimanjaro", "El monte Aconcagua", "El monte McKinley"]
+        },
+        {
+          "question": "¿Cuál es la lengua más hablada del mundo?",
+          "answer": "El chino mandarín",
+          "help": "Pista: Es el idioma oficial de China y se habla por un gran número de personas en todo el mundo.",
+          "score": 800,
+          "options": ["El chino mandarín", "El español", "El inglés", "El hindi"]
+        },
+        {
+          "question": "¿Quién pintó la famosa obra 'La última cena'?",
+          "answer": "Leonardo da Vinci",
+          "help": "Pista: Es uno de los artistas más reconocidos del Renacimiento y esta obra se encuentra en Milán, Italia.",
+          "score": 700,
+          "options": ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo"]
+        },
+        {
+          "question": "¿Cuál es el planeta más grande del sistema solar?",
+          "answer": "Júpiter",
+          "help": "Pista: Es conocido por su gran tamaño y sus características atmosféricas, incluyendo la Gran Mancha Roja.",
+          "score": 800,
+          "options": ["Júpiter", "Saturno", "Urano", "Neptuno"]
+        },
+        {
+          "question": "¿Cuál es la moneda oficial de Japón?",
+          "answer": "El yen",
+          "help": "Pista: Es una de las principales monedas del mundo y tiene símbolo ¥.",
+          "score": 700,
+          "options": ["El yen", "El dólar", "El euro", "La libra esterlina"]
+        },
+        {
+          "question": "¿Cuál es el nombre del personaje principal de la serie de libros 'Harry Potter'?",
+          "answer": "Harry Potter",
+          "help": "Pista: Es un joven mago que asiste a la Escuela de Magia y Hechicería de Hogwarts.",
+          "score": 800,
+          "options": ["Harry Potter", "Ron Weasley", "Hermione Granger", "Severus Snape"]
+        },
+        {
+          "question": "¿Quién interpretó a Iron Man en las películas del Universo Cinematográfico de Marvel?",
+          "answer": "Robert Downey Jr.",
+          "help": "Pista: Es un actor estadounidense conocido por su carismático papel como Tony Stark / Iron Man.",
+          "score": 900,
+          "options": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Tom Holland"]
+        },
+        {
+          "question": "¿Cuál es el nombre del villano principal en la película 'El Rey León' de Disney?",
+          "answer": "Scar",
+          "help": "Pista: Es el tío del protagonista y tiene una cicatriz distintiva en su rostro.",
+          "score": 800,
+          "options": ["Scar", "Jafar", "Ursula", "Gastón"]
+        },
+        {
+          "question": "¿Cuál es el nombre del famoso superhéroe arácnido de Marvel?",
+          "answer": "Spider-Man",
+          "help": "Pista: Es un personaje creado por Stan Lee y Steve Ditko, conocido por su traje rojo y azul y sus habilidades trepadoras.",
+          "score": 800,
+          "options": ["Spider-Man", "Iron Man", "Captain America", "Hulk"]
+        },
+        {
+          "question": "¿Cuál es el nombre del grupo musical surcoreano conocido por su canción 'Dynamite'?",
+          "answer": "BTS",
+          "help": "Pista: Es un grupo de K-pop formado por siete miembros y ha ganado gran popularidad a nivel mundial.",
+          "score": 800,
+          "options": ["BTS", "BLACKPINK", "EXO", "TWICE"]
+        },
+        {
+          "question": "¿Quién interpreta el papel de Jon Snow en la serie de televisión 'Juego de Tronos'?",
+          "answer": "Kit Harington",
+          "help": "Pista: Es un actor británico conocido por su papel como el noble y valiente Jon Snow en la exitosa serie.",
+          "score": 800,
+          "options": ["Kit Harington", "Peter Dinklage", "Emilia Clarke", "Sophie Turner"]
+        },
+        {
+          "question": "¿Cuál es el autor del libro '1984'?",
+          "answer": "George Orwell",
+          "help": "Pista: Es un escritor británico conocido por su visión distópica de la sociedad.",
+          "score": 1000,
+          "options": ["George Orwell", "Aldous Huxley", "Ray Bradbury", "Margaret Atwood", "Jorge Luis Borges"]
+        },
+        {
+          "question": "¿Cuál es el metal más abundante en la corteza terrestre?",
+          "answer": "Aluminio",
+          "help": "Pista: Es un metal ligero y se encuentra en forma de bauxita en la naturaleza.",
+          "score": 1000,
+          "options": ["Aluminio", "Hierro", "Cobre", "Plomo", "Titanio"]
+        },
+        {
+          "question": "¿En qué año se fundó la compañía Google?",
+          "answer": "1998",
+          "help": "Pista: Fue fundada por Larry Page y Sergey Brin en un garaje.",
+          "score": 1000,
+          "options": ["1998", "1995", "2000", "2004", "1990"]
+        },
+        {
+          "question": "¿Quién escribió la famosa novela 'Moby Dick'?",
+          "answer": "Herman Melville",
+          "help": "Pista: Es considerada una de las obras maestras de la literatura estadounidense.",
+          "score": 1000,
+          "options": ["Herman Melville", "Mark Twain", "Nathaniel Hawthorne", "Herman Hesse", "F. Scott Fitzgerald"]
+        },
+        {
+          "question": "¿Cuál es el océano más profundo del mundo?",
+          "answer": "El océano Pacífico",
+          "help": "Pista: El punto más profundo conocido en la Tierra, la Fosa de las Marianas, se encuentra en este océano.",
+          "score": 1000,
+          "options": ["El océano Pacífico", "El océano Atlántico", "El océano Índico", "El océano Ártico", "El océano Antártico"]
         }
       ],
     "frases": [
