@@ -70,11 +70,11 @@ export class GamePage implements OnInit {
       this.livesArray = Array(this.lives).fill(0);
     }
     increaseLife() {
-      if (this.lives < 5) {
+      if (this.lives < 4) {
         this.lives++;
         this.generateLivesArray();
       } else {
-        this.lives = 5;
+        this.lives = 4;
       }
     }
 
