@@ -28,13 +28,17 @@ export class GamePage implements OnInit {
   livesArray: number[] = [];
   random: any;
   options :any = [];
+  maximoPreguntas: number;
+  preguntasRespondidas:any = [];
+  
 
   constructor(
     public router : Router,
     public formBuilder: FormBuilder,
     private serviceApi : ApiService,
     public alertController : AlertController
-  ) { 
+  ) {
+      this.maximoPreguntas = 30;
       this.lives = 3;
       this.generateLivesArray();
       this.formSendAnswer = this.formBuilder.group({
@@ -105,29 +109,45 @@ export class GamePage implements OnInit {
     this.getFrases();
   }
 
-
-  getQuestions(){
+  getQuestions() {
     this.serviceApi.getQuestions().subscribe(
-      (res : any ) =>{
+      (res: any) => {
         this.questions = res;
-        this.questionLength = this.questions.length -1;
-        this.random = this.getRandomInt(0,this.questionLength);
-        console.log("Cantidad de preguntas : ", this.questionLength)
-        this.questionTitle = this.questions[this.random].question;
-        this.questionAnswer = this.questions[this.random].answer;
-        this.helpAnswer = this.questions[this.random].help;
-        this.score = this.questions[this.random].score;
-        this.options = this.shuffleArray(this.questions[this.random].options);
-        
-        if(!this.questionTitle){
+        this.questionLength = this.questions.length - 1;
+  
+        // Filtrar las preguntas que no han sido respondidas
+        const preguntasDisponibles = this.questions.filter((pregunta: any) => !this.preguntasRespondidas.some((pr: any) => pr.question === pregunta.question));
+  
+        if (preguntasDisponibles.length === 0) {
+          // No quedan preguntas disponibles
+          this.presentAlertWin();
+          this.router.navigate(['/home']);
+          return;
+        }
+  
+        // Seleccionar una pregunta al azar de las preguntas disponibles
+        const randomIndex = this.getRandomInt(0, preguntasDisponibles.length - 1);
+        const preguntaSeleccionada = preguntasDisponibles[randomIndex];
+  
+        // Agregar la pregunta a las preguntas respondidas
+        this.preguntasRespondidas.push(preguntaSeleccionada);
+  
+        console.log("Cantidad de preguntas: ", this.questionLength);
+        this.questionTitle = preguntaSeleccionada.question;
+        this.questionAnswer = preguntaSeleccionada.answer;
+        this.helpAnswer = preguntaSeleccionada.help;
+        this.score = preguntaSeleccionada.score;
+        this.options = this.shuffleArray(preguntaSeleccionada.options);
+  
+        if (!this.questionTitle) {
           this.presentAlertWin();
         }
-      }, (err:any) =>{
-        console.log("error : ",err)
+      },
+      (err: any) => {
+        console.log("error: ", err);
       }
     );
   }
-
   async presentAlertWin(){
     const alert = await this.alertController.create({
       header : "Eres un genio!",
@@ -270,16 +290,26 @@ export class GamePage implements OnInit {
   }
 
   next(){
+    this.preguntasRespondidas.push({
+      question: this.questionTitle,
+      answer: this.questionAnswer,
+      help: this.helpAnswer,
+      score: this.score,
+      options: this.options
+    });
+    
+    console.table(this.preguntasRespondidas);
     if(this.questionNumber < this.questionLength){
       this.questionNumber = ++this.questionNumber;
       localStorage.setItem("questionNumber",this.questionNumber)
-      // this.questions.splice(this.random)
-      console.log("largo actual:", this.questions.length);
       this.getQuestions();
-    }else{
+
+  }else{
       this.presentAlertWin();
       this.router.navigate(["/home"]);
-    }
+  }
+  
+  
     
     
   }
