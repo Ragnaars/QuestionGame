@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import { AdMob, AdOptions, BannerAdOptions, BannerAdSize, BannerAdPosition, BannerAdPluginEvents, AdMobBannerSize } from '@capacitor-community/admob';
 import { ItemReorderEventDetail } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.page.html',
@@ -77,7 +78,10 @@ export class GamePage implements OnInit {
         this.lives = 4;
       }
     }
-
+    
+  goToHome(){
+    this.router.navigate(['/home']);
+  }
     
   ngOnInit() {
   

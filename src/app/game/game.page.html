@@ -77,7 +77,7 @@
   <ion-toolbar class="footer-toolbar">
     <ion-tabs>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button [routerLink]="['/home']" tab="home">
+        <ion-tab-button (click) = "goToHome()" tab="home">
           <ion-icon name="home" ></ion-icon>
           Inicio
         </ion-tab-button>
